@@ -1,0 +1,83 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DuWork</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+
+	<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/nav_estilo.css' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	
+</head>
+<body>
+<nav>
+	
+		<div class="topnav" id="myTopnav">
+			<a selected href="/pagina/inicio" class="active">Inicio</a>
+			<a href="/accounts/login">Inicio de sesión</a>
+			<a href="/accounts/login">Quienes somos</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i>
+			</a>
+			<div class="col col-lg-2
+					col-md-2
+					col-xs-2" style="color: white;">
+				{% if user.is_authenticated %}
+				<a href="{% url 'logout' %}">Cerrar sesión</a>
+		 			Bienvenido, {{ user.username }}!
+			  					  
+				{% else %}
+				  
+				  <a href="{% url 'login' %}">Logeate!</a>
+				  <p>Usted no esta logeado</p>
+				{% endif %}
+			</div>
+		</div> 
+	</nav>
+	{% block content %}
+	<section id="seccion">
+		<div class="row center-xs">
+			<div id="articulo1" class="col col-lg-5
+							col-md-5
+							col-xs-11">
+				<div class="box">
+					<img id="imgarticulo1" src="{% static "img/img1.jpg" %}" alt="Aquí había una imagen">
+					<h2>Acerca de nosotros</h2>
+					<p id="parrafoarticulo1">
+						Lorem askdjk kasjk jk jkfjk ajka jka jk as akdjkasjkdjk gkdfklgkl eriowieru asnzxcn aslkdjaskl  kldfkjf fghdfgdf  jtyu ty werwer ytr 
+					</p>
+				</div>
+				
+			</div>
+			<div id="articulo2" class="col-lg-5
+						col-md-5
+						col-xs-11">
+				<div class="box">
+					<img id="imgarticulo2" src="{% static "img/img2.jpg" %}" alt="Aquí había una imagen">
+					<h2>Contáctanos</h2>
+					<p id="parrafoarticulo2">
+						Lorem askdjk kasjk jk jkfjk ajka jka jk as akdjkasjkdjk gkdfklgkl eriowieru asnzxcn aslkdjaskl  kldfkjf fghdfgdf  jtyu ty werwer ytr 
+					</p>
+				</div>
+				
+			</div>
+			
+		</div>
+	</section>
+	{% endblock content %}	
+	<footer>
+		<div class="row start-xs">
+			<div class="col-xs-4">
+				<div class="box">
+					<h2>DuWork</h2>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
